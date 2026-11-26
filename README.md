@@ -1,4 +1,4 @@
-# CUT&Tag 工作台
+# CUT&Tag Agent
 
 用本地网页运行 CUT&Tag 基础分析、查看质控和 IGV 轨道，并用可选的模型复核结果。
 
