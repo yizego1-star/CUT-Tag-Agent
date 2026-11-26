@@ -1,0 +1,42 @@
+# Credentials, local authorization and settings
+.env
+.env.*
+!.env.example
+.local/
+.h9-linux/
+.venv/
+
+# Local inputs, reports, and generated artifacts
+/data/
+/outputs/
+/planning/
+/PROJECT_HANDOFF.md
+/AGENTS.md
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.sam
+*.cram
+*.crai
+*.bw
+*.bigwig
+*.bed
+*.bed.gz
+*.fa
+*.fa.gz
+*.fasta
+*.fasta.gz
+*.gtf
+*.gtf.gz
+*.bt2
+*.bt2l
+*.log
+
+# Development caches
+__pycache__/
+*.py[cod]
+node_modules/
+.DS_Store

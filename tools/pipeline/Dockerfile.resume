@@ -1,0 +1,2 @@
+FROM cuttag-pipeline:2026-11-17
+COPY worker.py /opt/pipeline-worker.py

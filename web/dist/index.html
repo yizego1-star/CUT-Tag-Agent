@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CUT&Tag 本地分析工作台：查看样本、历史报告和流程记录。">
+  <title>分析工作台 · CUT&Tag</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#workspace" aria-label="CUT&Tag 工作台首页">CUT&Tag</a>
+      <nav aria-label="主导航">
+        <button class="nav-item active" data-view="workspace" aria-current="page"><span data-icon="workspace"></span>分析工作台</button>
+        <button class="nav-item" data-view="samples"><span data-icon="samples"></span>样本库</button>
+        <button class="nav-item" data-view="history"><span data-icon="history"></span>运行记录</button>
+        <button class="nav-item" data-view="settings"><span data-icon="settings"></span>接入设置</button>
+      </nav>
+    </aside>
+    <main id="main-content" tabindex="-1">
+      <section class="view" id="view-workspace" aria-labelledby="workspace-heading">
+        <div class="page-heading"><h1 id="workspace-heading">分析工作台</h1><button class="text-button" data-go="samples">打开样本库</button></div>
+        <div id="workspace-advice" hidden></div>
+        <div class="workspace-layout">
+          <section class="task-section" aria-labelledby="task-heading">
+            <h2 id="task-heading">创建任务</h2>
+            <form id="task-form">
+              <div class="field"><label for="sample-select">本地样本</label><select id="sample-select" required aria-describedby="selected-sample-summary"><option value="">正在读取样本…</option></select><p class="field-help" id="selected-sample-summary"></p></div>
+              <details id="analysis-options" class="analysis-options">
+                <summary>其他分析选项</summary>
+                <div class="field"><label for="run-mode">分析任务</label><select id="run-mode" aria-describedby="input-note"><option value="review" selected>已有结果 · Agent 复核</option><option value="paired_agent" hidden disabled>配对样本 Agent</option><option value="pipeline">原始双端 FASTQ · 分析并复核</option><option value="normalization">预设 · CPM 与 Spike-in 标准化</option><option value="igg">预设 · IgG 对照检查</option></select></div>
+                <div class="field"><label for="task-name">任务名称</label><input id="task-name" maxlength="80" value="单样本分析 · Agent" required autocomplete="off"></div>
+              </details>
+              <p class="field-help" id="input-note"></p>
+              <div class="form-actions"><button class="button primary" id="start-demo" type="submit" disabled>开始复核</button></div>
+              <p class="inline-error" id="form-error" role="alert"></p>
+            </form>
+            <section id="workspace-results" class="workspace-results" aria-labelledby="workspace-results-heading" hidden>
+              <h2 id="workspace-results-heading">已有结果</h2><ul id="workspace-results-list"></ul>
+            </section>
+          </section>
+          <section class="run-section" id="current-run-panel" aria-labelledby="run-heading">
+            <div class="section-heading"><h2 id="run-heading">当前记录</h2><span class="status" id="current-run-label"></span></div>
+            <div class="empty-state" id="run-empty"><h3>暂无运行记录</h3><p>创建任务后可查看步骤、结果和结束状态。</p></div>
+            <div id="run-content" hidden></div>
+          </section>
+        </div>
+      </section>
+      <section class="view" id="view-samples" aria-labelledby="samples-heading" hidden>
+        <div class="page-heading"><h1 id="samples-heading">样本库</h1></div>
+        <div id="samples-content"><p class="muted">正在读取样本…</p></div>
+      </section>
+      <section class="view" id="view-history" aria-labelledby="history-heading" hidden>
+        <div class="page-heading"><h1 id="history-heading">运行记录</h1><button class="button secondary" id="history-create" data-go="workspace">创建任务</button></div>
+        <div id="history-content"><p class="muted">正在读取记录…</p></div>
+        <section class="run-section" aria-label="运行详情" id="history-detail" hidden>
+          <div class="history-detail-nav">
+            <button class="button secondary" id="history-back" type="button">← 返回上一级</button>
+            <span class="status" id="history-run-label"></span>
+          </div>
+          <p id="history-run-status" class="field-help" role="status"></p>
+          <div id="history-run-content" hidden></div>
+        </section>
+      </section>
+      <section class="view" id="view-settings" aria-labelledby="settings-heading" hidden>
+        <div class="page-heading"><h1 id="settings-heading">接入设置</h1></div>
+        <div id="settings-content"><p class="muted">正在读取配置…</p></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

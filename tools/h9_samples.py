@@ -1,0 +1,6 @@
+"""Selected public GSE200768 records. Replicate numbers don't imply paired controls."""
+
+TARGETS = ('SRR18746633', 'SRR18746632')
+CONTROLS = ('SRR18746589', 'SRR18746588')
+SAMPLES = TARGETS + CONTROLS
+GEO_SAMPLES = dict(zip(SAMPLES, ('GSM6043383', 'GSM6043384', 'GSM6043395', 'GSM6043396')))

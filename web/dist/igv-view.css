@@ -1,0 +1,7 @@
+body { margin: 0; padding: 8px; font: 13px/1.5 system-ui, sans-serif; color: #242b34; }
+#igv-loci { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 7px; }
+#igv-loci[hidden], #igv-status[hidden] { display: none; }
+#igv-loci button { padding: 3px 7px; border: 1px solid #bdc9d4; border-radius: 4px; background: #fff; color: #17658d; font: inherit; cursor: pointer; }
+#igv-loci button:hover, #igv-loci button:focus-visible { background: #eef7fc; }
+#igv-status { margin: 4px 0; }
+#igv-browser { min-width: 480px; }
